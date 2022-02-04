@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Diwans Scents - Giveaway Start</title>
+
+    <link rel="stylesheet" href="game.css">
+    <style>
+        * {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background-color: #EAFFD0;
+        }
+
+        #timeid {
+            font-size: 20px;
+
+            font-family: 'Times New Roman', Times, serif;
+        }
+        #finishbtn{
+        background-color: #95E1D3;
+            color: black;
+            width: 200px;
+            height: 50px;
+            font-size: 25px;
+            border: none;
+            border-radius: 10px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+      }
+      #gameover{
+          display: none;
+      }
+    </style>
+
+</head>
+
+<body onclick="vv()">
+
+    <div class="container">
+        <center>
+            <h1 id="timeid">Time : 30 sec</h1>
+        </center>
+    </div>
+
+    <h1 id="hh"></h1>
+
+    <div id="game"></div>
+
+  
+
+
+
+    <script>
+
+
+        var hah = document.getElementById("hh")
+
+        var inputs = '';
+        var q = 0
+
+        for (var i = 0; i <= 10; i++) {
+            for (var n = 0; n < (i + 2) * (i + 2); n++) {
+                inputs += '<input type="checkbox" class="cube cube_' + n + ' level_' + i + '" />';
+
+            }
+
+        }
+
+        inputs += '<div class="finish">Game Complete! <br><br>  Click Here</div>';
+
+        document.getElementById('game').innerHTML = inputs;
+        var timeid = document.getElementById('timeid')
+
+
+
+
+        var a = 30;
+        var timef = function () {
+            var st = document.getElementById("playbtn")
+            var timei = document.getElementById("timeid")
+            timeid.style.display = "block"
+            timeid.innerHTML = "Time : " + a + " sec"
+
+            if (a == 0) {
+                document.getElementById('game').style.display = 'none'
+                document.getElementById('gameover').style.display = 'block'
+                timeid.style.display = "none"
+                clearInterval(bbb)
+
+            }
+
+            a--
+
+        }
+
+        var vv = function () {
+            if (q == 12) {
+                document.getElementById('game').style.display = 'none'
+               
+                timeid.style.display = "none"
+                window.location.href = "third.html"
+                clearInterval(bbb)
+
+            }
+            q++
+        }
+
+        var bbb = setInterval(timef, 1000)
+
+    </script>
+</body>
+
+</html>
